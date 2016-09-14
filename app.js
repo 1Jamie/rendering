@@ -4,7 +4,7 @@
 // get the canvas for rendering
 var canvas = document.getElementById("rendercanvas");
 // start the babylon 3D engine
-var engine = new BABYLON.Engine(canvas,true); 
+var engine = new BABYLON.engine(canvas, true);
 // creating the scene
 var createScene = function(){
     //create a basic BJS scene object
