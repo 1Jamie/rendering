@@ -6,10 +6,10 @@
 
         <title>Babylon.js sample code</title>
         <!-- Babylon.js -->
-        <script src="https://www.babylonjs.com/hand.minified-1.2.js"></script>
-        <script src="https://www.babylonjs.com/cannon.js"></script>
-        <script src="https://www.babylonjs.com/oimo.js"></script>
-        <script src="https://www.babylonjs.com/babylon.js"></script>
+        <script src="minified-1.2.js"></script>
+        <script src="cannon.js"></script>
+        <script src="oimo.js"></script>
+        <script src="babylon.2.4.js"></script>
         <style>
             html, body {
                 overflow: hidden;
@@ -28,22 +28,7 @@
     </head>
 <body>
     <canvas id="renderCanvas"></canvas>
-    <script>
-       var canvas = document.getElementById("renderCanvas");
-        var engine = new BABYLON.Engine(canvas, true);
-
-        BABYLON.SceneLoader.Load("", "test.babylon", engine, function (newScene) {
-            // Wait for textures and shaders to be ready
-            newScene.executeWhenReady(function () {
-                // Attach camera to canvas inputs
-                newScene.activeCamera.attachControl(canvas);
-
-                // Once the scene is loaded, just register a render loop to render it
-                engine.runRenderLoop(function() {
-                    newScene.render();
-                });
-            });
-        });
+    <script src="app.js">
     </script>
 </body>
 </html>
