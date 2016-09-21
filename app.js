@@ -1,12 +1,10 @@
 ///include="/babylon.2.4.js" 
 
- window.addEventListener('DOMContentLoaded', function() {
-// get the canvas for rendering
-var canvas = document.getElementById("rendercanvas");
-// start the babylon 3D engine
-var engine = new BABYLON.Engine(canvas, true);
-// creating the scene
-var createScene = function(){
+window.addEventListener('DOMContentLoaded', function() {
+  var canvas = document.getElementById("renderCanvas");
+  var engine = new BABYLON.Engine(canvas, true);
+
+  var createScene = function(){
     //create a basic BJS scene object
     var scene = new BABYLON.Scene(engine);
     //creating the camera real fast
@@ -26,17 +24,19 @@ var createScene = function(){
     block.position.y = -1;
     //return the scene created
     return scene;
-}
-// need to call up the create scene to use
+    
+};
+
 var scene = createScene();
-engine.runRenderLoop(function() {
-scene.render();
-});
-window.addEventListener('resize', function() {
-    engine.resize();
+
+engine.runRenderLoop(function () {
+    scene.render();
 });
 
-
+        // Resize
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
 
 
 
