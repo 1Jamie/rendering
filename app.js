@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         camera.attachControl(canvas, false);
         console.log("camera attached to canavas");
         camera.applyGravity = true;
-        camera.speed = 1;
-        //camera.fov, 15;
+        camera.speed = 0.75;
 
         //why not make a skybox all nice and stuff
         var skybox = BABYLON.Mesh.CreateBox("skybox", 100.0, scene);
@@ -41,12 +40,17 @@ document.addEventListener("DOMContentLoaded", function() {
         var materialPlane = new BABYLON.StandardMaterial("texturePlane", scene);
         materialPlane.diffuseTexture = new BABYLON.Texture("grass2.jpg", scene);
         //materialPlane.
-        materialPlane.diffuseTexture.uScale = 15.0;//Repeat on the Vertical Axes
-        materialPlane.diffuseTexture.vScale = 15.0;//Repeat on the Horizontal Axes
+        materialPlane.diffuseTexture.uScale = 19.0;//Repeat on the Vertical Axes
+        materialPlane.diffuseTexture.vScale = 19.0;//Repeat on the Horizontal Axes
+        materialPlane.bumpTexture = new BABYLON.Texture("grass2bmp.jpg", scene);
+        materialPlane.bumpTexture.uScale = 19.0;
+        materialPlane.bumpTexture.vScale - 19.0;
+        materialPlane.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+        //var bumpGrass = new BABYLON.Texture
 
         //we are going to create the ground we are going to stand on
         //and enable the colliders for the ground so we dont fall throught it
-        var ground = BABYLON.Mesh.CreatePlane("plane", 120, scene);
+        var ground = BABYLON.Mesh.CreateDisc("ground", 70, 64, scene, true);
         ground.position.y = -5;
         ground.rotation.x = Math.PI / 2;
         console.log("ground created");
