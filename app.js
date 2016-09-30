@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
         camera.attachControl(canvas, false);
         console.log("camera attached to canavas");
         camera.applyGravity = true;
-        camera.speed = 0.75;
+        camera.speed = 0.5;
 
         //why not make a skybox all nice and stuff
         var skybox = BABYLON.Mesh.CreateBox("skybox", 100.0, scene);
-        var skyboxMaterial = new BABYLON.StandardMaterial("skybox",scene);
+        var skyboxMaterial = new BABYLON.StandardMaterial("textures/ame_nebula/skybox",scene);
         skyboxMaterial.backFaceCulling = false;
         skyboxMaterial.disableLighting=true;
         skybox.material = skyboxMaterial;
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
         skyboxMaterial.diffuseColor = new BABYLON.Color3(255,255,255);
         skyboxMaterial.specularColor = new BABYLON.Color3(255,255,255);
         //applying specific texturing
-        skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("skybox", scene);
+        skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/ame_nebula/skybox", scene);
         skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE
 
 
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         //materialPlane.
         materialPlane.diffuseTexture.uScale = 19.0;//Repeat on the Vertical Axes
         materialPlane.diffuseTexture.vScale = 19.0;//Repeat on the Horizontal Axes
-        materialPlane.bumpTexture = new BABYLON.Texture("grass2bmp.jpg", scene);
+        materialPlane.bumpTexture = new BABYLON.Texture("grass3bmp.jpg", scene);
         materialPlane.bumpTexture.uScale = 19.0;
         materialPlane.bumpTexture.vScale - 19.0;
         materialPlane.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
