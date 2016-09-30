@@ -38,21 +38,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
         //texture test
         var materialPlane = new BABYLON.StandardMaterial("texturePlane", scene);
-        materialPlane.diffuseTexture = new BABYLON.Texture("grass2.jpg", scene);
+        materialPlane.diffuseTexture = new BABYLON.Texture("textures/moon/moon.png", scene);
         //materialPlane.
-        materialPlane.diffuseTexture.uScale = 19.0; //Repeat on the Vertical Axes
-        materialPlane.diffuseTexture.vScale = 19.0; //Repeat on the Horizontal Axes
-        materialPlane.bumpTexture = new BABYLON.Texture("grass2bmp.jpg", scene);
-        materialPlane.bumpTexture.uScale = 19.0;
-        materialPlane.bumpTexture.vScale - 19.0;
+        materialPlane.diffuseTexture.uScale = 1.0; //Repeat on the Vertical Axes
+        materialPlane.diffuseTexture.vScale = 1.0; //Repeat on the Horizontal Axes
+        materialPlane.bumpTexture = new BABYLON.Texture("textures/moon/moonbmp.png", scene);
+        materialPlane.bumpTexture.uScale = 1.0;
+        materialPlane.bumpTexture.vScale = 1.0;
         materialPlane.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
         //var bumpGrass = new BABYLON.Texture
 
         //we are going to create the ground we are going to stand on
         //and enable the colliders for the ground so we dont fall throught it
-        var ground = BABYLON.Mesh.CreateDisc("ground", 70, 64, scene, true);
-        ground.position.y = -5;
-        ground.rotation.x = Math.PI / 2;
+        var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/moon/moonElv.jpg", 80, 80, 150, 0, 90, scene, false);
+        ground.position.y = -60;
+        ground.position.x = 0;
+        ground.position.z = 0;
         console.log("ground created");
         ground.checkCollisions = true;
         console.log("ground soldified by colliders");
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("grass sould now be the texutre of the ground");
 
         //create some lighting so we can see
-        var pLight = new BABYLON.PointLight("light1", new BABYLON.Vector3(600, 7, -230), scene);
+        var pLight = new BABYLON.PointLight("light1", new BABYLON.Vector3(600, 30, -230), scene);
         console.log("light should be created");
 
         return scene;
