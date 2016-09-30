@@ -1,6 +1,7 @@
 /// <reference path="babylon.2.4.d.ts" />
 document.addEventListener("DOMContentLoaded", function() {
     //this sets up the basic things we need for rendering
+    var camera = null;
     var canvas = document.getElementById("canvas");
     var engine = new BABYLON.Engine(canvas, true);
 
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("scene created");
 
         //creating the free camera we are going to use for the viewport
-        var camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 1, 4), scene);
+        camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 1, 4), scene);
         console.log("camera generated");
         camera.checkCollisions = true;
         console.log("camera collisions set");
@@ -75,6 +76,12 @@ document.addEventListener("DOMContentLoaded", function() {
     //initiate the render loop
     engine.runRenderLoop(function() {
         scene.render();
+                if (camera.position.y <= -20){
+            camera.position.y = 1;
+            camera.position.x = 0;
+            camera.position.z = 0;
+        }else {};
+        console.log(camera.position.y)
     });
 
     //adding a listener for canvas/window resize adjust
