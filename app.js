@@ -12,7 +12,38 @@ document.addEventListener("DOMContentLoaded", function() {
         scene.collisionsEnabled = true;
         console.log("scene created");
 
-        //creating the free camera we are going to use for the viewport
+        /*creating the camera used for the scene, on desktop it is a free camera
+        on mobile it is a joystick camera*/
+        if (navigator.userAgent.match(/Android/i) ||
+            navigator.userAgent.match(/webOS/i) ||
+            navigator.userAgent.match(/iPhone/i) ||
+            navigator.userAgent.match(/iPad/i) ||
+            navigator.userAgent.match(/iPod/i) ||
+            navigator.userAgent.match(/BlackBerry/i) ||
+            navigator.userAgent.match(/Windows Phone/i)
+        ) {
+            console.log("user is on mobile")
+            camera = new BABYLON.VirtualJoysticksCamera("VJ_camera", new BABYLON.Vector3(0, 1, -15), scene);
+            console.log("camera generated");
+            camera.checkCollisions = true;
+            console.log("camera collisions set");
+            camera.setTarget(BABYLON.Vector3.Zero());
+            camera.attachControl(canvas, false);
+            console.log("camera attached to canavas");
+            camera.applyGravity = true;
+            camera.speed = 0.5;
+        } else {
+            camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 0, 4), scene);
+            console.log("camera generated");
+            camera.checkCollisions = true;
+            console.log("camera collisions set");
+            camera.setTarget(BABYLON.Vector3.Zero());
+            camera.attachControl(canvas, false);
+            console.log("camera attached to canavas");
+            camera.applyGravity = true;
+            camera.speed = 0.5;
+        };
+
         camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 0, 4), scene);
         console.log("camera generated");
         camera.checkCollisions = true;
