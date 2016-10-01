@@ -46,16 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
             camera.maxCameraSpeed = 5;
         };
 
-        camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 0, 4), scene);
-        console.log("camera generated");
-        camera.checkCollisions = true;
-        console.log("camera collisions set");
-        camera.setTarget(BABYLON.Vector3.Zero());
-        camera.attachControl(canvas, false);
-        console.log("camera attached to canavas");
-        camera.applyGravity = true;
-        camera.speed = 0.5;
-
         //why not make a skybox all nice and stuff
         var skybox = BABYLON.Mesh.CreateBox("skybox", 100.0, scene);
         var skyboxMaterial = new BABYLON.StandardMaterial("textures/ame_nebula/skybox", scene);
