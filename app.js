@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
             camera.attachControl(canvas, false);
             console.log("camera attached to canavas");
             camera.applyGravity = true;
-            camera.speed = 0.5;
+            camera.cameraAcceleration = 0.05;
+            camera.maxCameraSpeed = 5;
         } else {
             camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 0, 4), scene);
             console.log("camera generated");
@@ -41,7 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
             camera.attachControl(canvas, false);
             console.log("camera attached to canavas");
             camera.applyGravity = true;
-            camera.speed = 0.5;
+            camera.cameraAcceleration = 0.05;
+            camera.maxCameraSpeed = 5;
         };
 
         camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 0, 4), scene);
@@ -68,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
         skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE
 
 
-        //texture for gorund
+        //texture for ground
         var materialPlane = new BABYLON.StandardMaterial("texturePlane", scene);
         materialPlane.diffuseTexture = new BABYLON.Texture("textures/moon/moon.png", scene);
         //materialPlane.
@@ -77,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
         materialPlane.bumpTexture = new BABYLON.Texture("textures/moon/moonbmp.png", scene);
         materialPlane.bumpTexture.uScale = 1.0;
         materialPlane.bumpTexture.vScale = 1.0;
-        materialPlane.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+        materialPlane.specularColor = new BABYLON.Color3(0, 0, 0);
         //var bumpGrass = new BABYLON.Texture
 
         //we are going to create the ground we are going to stand on
@@ -97,6 +99,9 @@ document.addEventListener("DOMContentLoaded", function() {
         //create some lighting so we can see
         var pLight = new BABYLON.PointLight("light1", new BABYLON.Vector3(600, 30, -230), scene);
         console.log("light should be created");
+        //create a ambient light above to have some better visibility
+        var aLight = new BABYLON.PointLight("aLight", new BABYLON.Vector3(0,30,0), scene, true);
+        aLight.intensity = 0.4;
 
         return scene;
 
@@ -108,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
     engine.runRenderLoop(function() {
         scene.render();
                 if (camera.position.y <= -20){
-            camera.position.y = 1;
+            camera.position.y = 3;
             camera.position.x = 0;
             camera.position.z = 0;
         }else {};
