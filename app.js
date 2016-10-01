@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("scene created");
 
         //creating the free camera we are going to use for the viewport
-        camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 1, 4), scene);
+        camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 0, 4), scene);
         console.log("camera generated");
         camera.checkCollisions = true;
         console.log("camera collisions set");
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE
 
 
-        //texture test
+        //texture for gorund
         var materialPlane = new BABYLON.StandardMaterial("texturePlane", scene);
         materialPlane.diffuseTexture = new BABYLON.Texture("textures/moon/moon.png", scene);
         //materialPlane.
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
         //we are going to create the ground we are going to stand on
         //and enable the colliders for the ground so we dont fall throught it
         var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/moon/moonElv.jpg", 200 , 200, 250, 0, 90, scene, false);
-        ground.position.y = -60;
+        ground.position.y = -50;
         ground.position.x = 0;
         ground.position.z = 0;
         console.log("ground created");
