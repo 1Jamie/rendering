@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
             camera.attachControl(canvas, false);
             console.log("camera attached to canavas");
             camera.applyGravity = true;
-            camera.cameraAcceleration = 0.05;
-            camera.maxCameraSpeed = 5;
+            camera.cameraAcceleration = 0.02;
+            camera.maxCameraSpeed = 4;
         } else {
             camera = new BABYLON.FreeCamera("main", new BABYLON.Vector3(-4, 0, 4), scene);
             console.log("camera generated");
