@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         //we are going to create the ground we are going to stand on
         //and enable the colliders for the ground so we dont fall throught it
-        var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/moon/moonElv.jpg", 200 , 200, 350, -10, 50, scene, false);
-        ground.position.y = -50;
+        var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/moon/moonElv.jpg", 200 , 200, 400, -10, 50, scene, false);
+        ground.position.y = -25;
         ground.position.x = 0;
         ground.position.z = 0;
         console.log("ground created");
