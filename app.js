@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("camera attached to canavas");
             camera.applyGravity = true;
             camera.cameraAcceleration = 0.05;
-            camera.maxCameraSpeed = 5;
+            camera.maxCameraSpeed = 2;
+            camera.gravity = .5;
         };
 
         //why not make a skybox all nice and stuff
@@ -74,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         //we are going to create the ground we are going to stand on
         //and enable the colliders for the ground so we dont fall throught it
-        var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/moon/moonElv.jpg", 200 , 200, 400, -10, 50, scene, false);
+        var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/moon/moonElv.jpg", 300 , 300, 400, -10, 50, scene, false);
         ground.position.y = -25;
         ground.position.x = 0;
         ground.position.z = 0;
