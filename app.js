@@ -1,4 +1,4 @@
-/// <reference path="babylon.2.4.d.ts" />
+/// <reference path="babylon.2.5.d.ts" />
 document.addEventListener("DOMContentLoaded", function() {
     //this sets up the basic things we need for rendering
     var camera = null;
